@@ -1,4 +1,5 @@
 # Created by newuser for 5.8
+
 # Fix the Java Problem
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -8,7 +9,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -49,7 +49,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Manual configuration
-
 PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
 # Manual aliases
@@ -124,6 +123,9 @@ function rmk(){
 	scrub -p dod $1
 	shred -zun 10 -v $1
 }
+
+# Heritage from bash
+source ~/.bash_profile
 
 # Finalize Powerlevel10k instant prompt. Should stay at the bottom of ~/.zshrc.
 (( ! ${+functions[p10k-instant-prompt-finalize]} )) || p10k-instant-prompt-finalize
