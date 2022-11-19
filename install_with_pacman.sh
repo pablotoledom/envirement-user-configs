@@ -1,28 +1,29 @@
+#!/bin/bash
 # Copy fonts
-sudo cp fonts/hack/*.* /usr/share/fonts
+sudo cp ./fonts/hack/*.* /usr/share/fonts
 
 # Install terminal tools
-sudo pacman -S locate
-sudo pacman -S 7z
-sudo pacman -S fonts-powerline
-sudo pacman -S zsh
-sudo pacman -S zsh-syntax-highlighting
-sudo pacman -S zsh-autosuggestions
+sudo pacman -Sy mlocate bat 7z fonts-powerline zsh zsh-syntax-highlighting zsh-autosuggestions neovim
 
 # Install bat a beatiful cat command
-sudo pacman -S bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
+# mkdir -p ~/.local/bin
+# ln -s /usr/bin/bat ~/.local/bin/batcat
 
 # Change shell to user pablo
-sudo usermod --shell /usr/bin/zsh pablo
+user=whoami # Get user in session
+sudo usermod --shell /usr/bin/zsh $pablo
 
+# Copy to /usr/share directory
+sudo mkdir -p /usr/share/zsh/plugins
+sudo cp -r ./copy_to_usr_share/zsh/plugins/zsh-sudo /usr/share/zsh/plugins/ # Add sudo word when press two times the return key
+sudo cp -r ./copy_to_usr_share/zsh/plugins/zsh-autosuggestions /usr/share/zsh/plugins/ # v0.7.0
+sudo cp -r ./copy_to_usr_share/zsh/plugins/zsh-syntax-highlighting /usr/share/zsh/plugins/ #v0.7.1
 
-#move files to host directories
-mv move_to_user_folder/.vimrc ~/
-mv move_to_user_folder/.zshrc ~/
-mv move_to_usr_share/zsh-sudo /usr/share/
-mv zsh/themes/powerlevel10k ~/
+# Copy files to user directory
+mkdir -p ~/.config/nvim
+cp ./copy_to_user_folder/.config/nvim/init.vim ~/.config/nvim/init.vim
 
-# Install PowerLevel10K
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+mkdir -p ~/zsh/themes
+cp -r ./copy_to_user_folder/zsh/themes/powerlevel10k ~/zsh/themes/
+
+cp ./copy_to_user_folder/.zshrc ~/.zshrc
