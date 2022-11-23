@@ -1,9 +1,11 @@
 #!/bin/bash
 # Copy fonts
 sudo cp ./fonts/hack/*.* /usr/share/fonts
+sudo cp ./fonts/meslolgs/*.* /usr/share/fonts
+sudo cp ./fonts/powerline/*.* /usr/share/fonts
 
 # Install terminal tools
-sudo pacman -Sy mlocate bat 7z fonts-powerline zsh zsh-syntax-highlighting zsh-autosuggestions neovim
+sudo pacman -Sy mlocate 7z bat zsh neovim
 
 # Install bat a beatiful cat command
 # mkdir -p ~/.local/bin

@@ -1,3 +1,4 @@
+#!/bin/bash
 # Copy fonts
 sudo cp fonts/hack/*.* /usr/share/fonts
 
