@@ -1,29 +1,69 @@
 #!/bin/bash
-# Copy fonts
-sudo cp fonts/hack/*.* /usr/share/fonts
+# *************************************************************** #
+#                           WELCOME                               #
+#                                                                 #
+#  Tested on:                                                     #
+#   - Ubuntu 22                                                   #
+#                                                                 #
+# *************************************************************** #
+source ./show/welcome
 
-# Install terminal tools
-sudo apt install locate
-sudo apt install 7z
-sudo apt install fonts-powerline
-sudo apt install zsh
-sudo apt install zsh-syntax-highlighting
-sudo apt install zsh-autosuggestions
+user="$(whoami)" # Get user in session
+echo "Hi ${user}!!"
 
-# Install bat a beatiful cat command
-sudo apt install bat
-mkdir -p ~/.local/bin
-ln -s /usr/bin/batcat ~/.local/bin/bat
+# *************************************************************** #
+#                         Copy fonts                              #
+# *************************************************************** #
+echo ''
+echo 'Copying Nerd Fonts...'
+sleep .5
+
+sudo mkdir -p /usr/share/fonts/TTF
+sudo mkdir -p /usr/share/fonts/OTF
+
+sudo cp -r ./fonts/hack/*.ttf /usr/share/fonts/TTF
+sudo cp -r ./fonts/meslolgs/*.* /usr/share/fonts/TTF
+sudo cp -r ./fonts/powerline/*.ttf /usr/share/fonts/TTF
+sudo cp -r ./fonts/powerline/*.otf /usr/share/fonts/OTF
+
+# fc-cache -f -v
+
+# *************************************************************** #
+#                    Install terminal tools                       #
+# *************************************************************** #
+echo ''
+echo 'Install terminal tools...'
+sleep .5
+
+# 1- Create backup RUNCOM files
+mv -f ~/.zshrc ~/.zshrc.back
+mv -f ~/.vimrc ~/.vimrc.back
+
+# Install software with apt
+sudo apt -y install locate
+sudo apt -y install p7zip-full
+sudo apt -y install zsh
+sudo apt -y install bat
+
+# Copy ZSH plugins to /usr/share/zsh/plugins directory
+sudo mkdir -p /usr/share/zsh/plugins
+sudo cp -r ./copy_to_usr_share/zsh/plugins/zsh-sudo /usr/share/zsh/plugins/ # Add sudo word when press two times the return key
+sudo cp -r ./copy_to_usr_share/zsh/plugins/zsh-autosuggestions /usr/share/zsh/plugins/ # v0.7.0
+sudo cp -r ./copy_to_usr_share/zsh/plugins/zsh-syntax-highlighting /usr/share/zsh/plugins/ #v0.7.1
+
+# Copy files to host directories
+cp -r copy_to_user_folder/.vimrc ~/
+cp -r copy_to_user_folder/.zshrc ~/
+
+# Install PowerLevel10k theme
+cd ./copy_to_user_folder/zsh/themes/
+wget https://github.com/romkatv/powerlevel10k/archive/refs/tags/v1.19.0.tar.gz
+tar -zxvf v1.19.0.tar.gz
+cd ../../..
+mkdir -p ~/zsh/themes
+cp -r copy_to_user_folder/zsh/themes/powerlevel10k-1.19.0 ~/zsh/themes/powerlevel10k
 
 # Change shell to user pablo
-sudo usermod --shell /usr/bin/zsh pablo
+sudo usermod --shell /usr/bin/zsh ${user}
 
-
-#move files to host directories
-mv move_to_user_folder/.vimrc ~/
-mv move_to_user_folder/.zshrc ~/
-mv move_to_usr_share/zsh-sudo /usr/share/
-mv zsh/themes/powerlevel10k ~/
-
-# Install PowerLevel10K
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+echo '' >> ~/.bash_profile
