@@ -44,6 +44,13 @@ sudo apt -y install locate
 sudo apt -y install p7zip-full
 sudo apt -y install zsh
 sudo apt -y install bat
+sudo apt -y install lsd
+
+# Install software .deb file
+cd ./deb_files
+wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
+sudo dpkg -i lsd_0.23.1_amd64.deb
+cd ..
 
 # Copy ZSH plugins to /usr/share/zsh/plugins directory
 sudo mkdir -p /usr/share/zsh/plugins
