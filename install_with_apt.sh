@@ -50,6 +50,10 @@ sudo apt -y install lsd
 cd ./deb_files
 wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
 sudo dpkg -i lsd_0.23.1_amd64.deb
+
+wget https://github.com/sharkdp/bat/releases/download/v0.23.0/bat_0.23.0_amd64.deb
+sudo dpkg -i bat_0.23.0_amd64.deb
+
 cd ..
 
 # Copy ZSH plugins to /usr/share/zsh/plugins directory
