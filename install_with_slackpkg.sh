@@ -33,6 +33,8 @@ sudo cargo install --locked bat ~/bat-0.22.1
 ###########################################
 echo "Adding hacker fonts"
 # Copy fonts
+sudo mkdir -p /usr/share/fonts/TTF
+sudo mkdir -p /usr/share/fonts/OTF
 sudo cp -r ./fonts/hack/*.ttf /usr/share/fonts/TTF
 sudo cp -r ./fonts/meslolgs/*.* /usr/share/fonts/TTF
 sudo cp -r ./fonts/powerline/*.ttf /usr/share/fonts/TTF
