@@ -1,4 +1,4 @@
-call plug#begin('~/environment_user_configs/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 " Theme
 Plug 'morhetz/gruvbox'

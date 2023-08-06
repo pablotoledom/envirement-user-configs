@@ -3,7 +3,7 @@
 #                           WELCOME                               #
 #                                                                 #
 #  Tested on:                                                     #
-#   - Manjaro                                                     #
+#   - Manjaro 23.0.0                                              #
 #                                                                 #
 # *************************************************************** #
 source ./show/welcome
@@ -36,19 +36,33 @@ echo 'Install terminal tools...'
 sleep .5
 
 # 1- Create backup RUNCOM files
-cp ~/.zshrc ~/.zshrc.back
-cp ~/.vimrc ~/.vimrc.back
+cp -r ~/.zshrc ~/.zshrc.back
+cp -r ~/.vimrc ~/.vimrc.back
 
 # 2- Install software with pacman
-sudo pacman -S bat lsd neovim
+sudo pacman -Sy bat lsd neovim
 
 # 3- Copy ZSH plugins to /usr/share/zsh/plugins directory
 sudo mkdir -p /usr/share/zsh/plugins/zsh-sudo
 sudo cp -r copy_to_usr_share/zsh/plugins/zsh-sudo/sudo.plugin.zsh /usr/share/zsh/plugins/zsh-sudo/ # Add sudo word when press two times the return key
 
 # 4- Copy neovim configuration
+cp -r ./copy_to_user_folder/.vimrc ~/
+cp -r ./copy_to_user_folder/.vim ~/
+
 mkdir -p ~/.config/nvim
-cp ./copy_to_user_folder/.config/nvim/init.vim ~/.config/nvim/init.vim
+cp -r ./copy_to_user_folder/.config/nvim/init.vim ~/.config/nvim/init.vim
+
+#  - Install vim-plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+#  - Copy nvim plugins
+cd ./copy_to_user_folder/.vim/
+tar -zxvf plugged.tar.gz
+cp -r plugged/* ~/.vim/plugged
+rm -R plugged
+cd ../..
 
 # 5- Adding configuration to RUNCOM files
 echo "

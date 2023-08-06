@@ -13,7 +13,7 @@ set laststatus=2 "Show status bar
 "set noshowmode "Hide editor mode bar (Insert, Replace or Visual) 
 
 " Imports config files
-so ~/environment_user_configs/.vim/plugins.vim
+so ~/.vim/plugins.vim
 
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
