@@ -40,7 +40,7 @@ cp -r ~/.zshrc ~/.zshrc.back
 cp -r ~/.vimrc ~/.vimrc.back
 
 # 2- Install software with pacman
-sudo pacman -Sy bat lsd neovim
+sudo pacman -S bat lsd neovim tmux
 
 # 3- Copy ZSH plugins to /usr/share/zsh/plugins directory
 sudo mkdir -p /usr/share/zsh/plugins/zsh-sudo
