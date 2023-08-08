@@ -14,8 +14,9 @@ echo "Hi ${user}!!"
 # *************************************************************** #
 #                         Copy fonts                              #
 # *************************************************************** #
-echo ''
+source ./show/divbar
 echo 'Copying Nerd Fonts...'
+source ./show/divbar
 sleep .5
 
 sudo mkdir -p /usr/share/fonts/TTF
@@ -31,8 +32,9 @@ sudo cp -r ./fonts/powerline/*.otf /usr/share/fonts/OTF
 # *************************************************************** #
 #                    Install terminal tools                       #
 # *************************************************************** #
-echo ''
-echo 'Install terminal tools...'
+source ./show/divbar
+echo 'Installing terminal tools...'
+source ./show/divbar
 sleep .5
 
 # 1- Create backup RUNCOM files
@@ -67,6 +69,11 @@ cp -r copy_to_user_folder/.vimrc ~/
 cp -r copy_to_user_folder/.zshrc ~/
 
 # Install PowerLevel10k theme
+echo ''
+echo 'Instaling powerlevel10k zsh theme'
+echo ''
+sleep .5
+
 cd ./copy_to_user_folder/zsh/themes/
 wget https://github.com/romkatv/powerlevel10k/archive/refs/tags/v1.19.0.tar.gz
 tar -zxvf v1.19.0.tar.gz

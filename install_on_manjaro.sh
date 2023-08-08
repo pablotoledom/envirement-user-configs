@@ -14,8 +14,9 @@ echo "Hi ${user}!!"
 # *************************************************************** #
 #                         Copy fonts                              #
 # *************************************************************** #
-echo ''
+source ./show/divbar
 echo 'Copying Nerd Fonts...'
+source ./show/divbar
 sleep .5
 
 sudo mkdir -p /usr/share/fonts/TTF
@@ -31,8 +32,9 @@ fc-cache -f -v
 # *************************************************************** #
 #                    Install terminal tools                       #
 # *************************************************************** #
-echo ''
-echo 'Install terminal tools...'
+source ./show/divbar
+echo 'Installing terminal tools...'
+source ./show/divbar
 sleep .5
 
 # 1- Create backup RUNCOM files
