@@ -20,7 +20,7 @@ source ./show/divbar
 sleep .5
 
 cp ./fonts/hack/*.* ~/Library/Fonts
-cp ./fonts/meslogs/*.* ~/Library/Fonts
+cp ./fonts/meslolgs/*.* ~/Library/Fonts
 cp ./fonts/powerline/*.* ~/Library/Fonts
 
 
