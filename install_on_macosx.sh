@@ -39,6 +39,7 @@ mv -f ~/.vimrc ~/.vimrc.back
 # 2- Install software with Brew
 echo ''
 echo 'Instaling HomeBrew...'
+echo ''
 sleep .5
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
