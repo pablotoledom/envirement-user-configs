@@ -48,6 +48,7 @@ sudo apt -y install zsh
 sudo apt -y install bat
 sudo apt -y install lsd
 sudo apt -y install tmux
+sudo apt -y install neovim
 
 # 2.3 Install software .deb file
 # cd ./deb_files
