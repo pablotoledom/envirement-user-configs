@@ -64,7 +64,6 @@ sudo apt -y install tmux
 # *************************************************************** #
 #    3- Copy ZSH plugins to /usr/share/zsh/plugins directory      #
 # *************************************************************** #
-cd ..
 source ./show/divbar
 echo '3- Installing ZSH themes and plugins...'
 sleep .5
