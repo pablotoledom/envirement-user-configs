@@ -50,16 +50,16 @@ sudo apt -y install lsd
 sudo apt -y install tmux
 
 # 2.3 Install software .deb file
-cd ./deb_files
-wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
-sudo dpkg -i lsd_0.23.1_amd64.deb
+# cd ./deb_files
+# wget https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
+# sudo dpkg -i lsd_0.23.1_amd64.deb
 
-wget https://github.com/sharkdp/bat/releases/download/v0.23.0/bat_0.23.0_amd64.deb
-sudo dpkg -i bat_0.23.0_amd64.deb
+# wget https://github.com/sharkdp/bat/releases/download/v0.23.0/bat_0.23.0_amd64.deb
+# sudo dpkg -i bat_0.23.0_amd64.deb
 
 # 2.4 Delete created files
-rm lsd_0.23.1_amd64.deb
-rm bat_0.23.0_amd64.deb
+# rm lsd_0.23.1_amd64.deb
+# rm bat_0.23.0_amd64.deb
 
 # *************************************************************** #
 #    3- Copy ZSH plugins to /usr/share/zsh/plugins directory      #
@@ -81,6 +81,7 @@ source ./show/divbar
 sleep .5
 
 # 4.1 Enter to theme directory
+mkdir -p ./copy_to_user_folder/zsh/themes/
 cd ./copy_to_user_folder/zsh/themes/
 
 # 4.2 Download PowerLevel10k theme
