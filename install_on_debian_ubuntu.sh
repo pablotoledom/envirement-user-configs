@@ -49,6 +49,11 @@ sudo apt -y install bat
 sudo apt -y install lsd
 sudo apt -y install tmux
 sudo apt -y install neovim
+sudo apt -y install gcc
+sudo apt -y install make
+sudo apt -y install cmake
+sudo apt -y install libcurl4-openssl-dev
+sudo apt -y install inotify-tools
 
 # 2.3 Install software .deb file
 # cd ./deb_files
