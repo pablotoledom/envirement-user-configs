@@ -54,6 +54,8 @@ sudo apt -y install make
 sudo apt -y install cmake
 sudo apt -y install libcurl4-openssl-dev
 sudo apt -y install inotify-tools
+sudo apt -y install libssl-dev
+
 
 # 2.3 Install software .deb file
 # cd ./deb_files
